@@ -1,0 +1,76 @@
+# 通研 Syslog 单机 Compose 示例（占位符，不含真实主机、口令与证书）
+#
+# 使用前替换：<harbor>、<tag>、<clickhouse-tag>、<deploy-dir>。
+# 敏感值放在同目录 .env（权限 600），不写入本文件或仓库。
+#
+#   .env 需要：
+#     CERT_PASSWORD=<HTTPS/TLS 证书口令>
+#     CLICKHOUSE_PASSWORD=<ClickHouse 应用账号口令>
+#
+# 部署：docker compose -p syslog -f compose.yaml up -d
+name: syslog
+
+services:
+  clickhouse:
+    image: <harbor>/syslog/clickhouse-server:<clickhouse-tag>
+    restart: unless-stopped
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    environment:
+      CLICKHOUSE_DB: syslog
+      CLICKHOUSE_USER: syslog_app
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      # 开启后 default 用户被禁用，应用必须使用 syslog_app 连接。
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+    volumes:
+      # SELinux Enforcing 宿主必须带 :Z，否则容器无写权限。
+      - <deploy-dir>/data/clickhouse:/var/lib/clickhouse:Z
+    healthcheck:
+      test: ["CMD-SHELL", "clickhouse-client --user syslog_app --password \"$$CLICKHOUSE_PASSWORD\" --query 'SELECT 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 40s
+    networks: [syslog-net]
+
+  api:
+    image: <harbor>/syslog/api:<tag>
+    restart: unless-stopped
+    depends_on:
+      clickhouse:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: https://0.0.0.0:7443
+      # 口令只经环境变量注入，JSON 配置里留空。
+      Kestrel__Certificates__Default__Password: ${CERT_PASSWORD}
+      ClickHouse__Password: ${CLICKHOUSE_PASSWORD}
+      Ingest__TlsCertificates__server__CertificatePassword: ${CERT_PASSWORD}
+      # 第 3 个监听器（TLS）的证书口令，依赖 Listeners 数组顺序。
+      Ingest__Listeners__2__CertificatePassword: ${CERT_PASSWORD}
+      # 管理台「HTTPS 证书」上传的 PFX 落到 data 卷；不设置时默认在容器的 run-data 下（重建即丢）。
+      HttpsCertificate__Directory: /app/data/control/https-certificate
+    ports:
+      - "0.0.0.0:514:514/udp"
+      - "0.0.0.0:514:514/tcp"
+      # TLS 接收按授权对外映射；客户端需信任服务器证书，未部署环境按需确认。
+      - "0.0.0.0:6514:6514/tcp"
+      - "0.0.0.0:2514:2514/tcp"
+      - "0.0.0.0:7443:7443/tcp"
+    sysctls:
+      # 允许非 root 的 app 用户绑定 514 等低端口。
+      net.ipv4.ip_unprivileged_port_start: "0"
+    volumes:
+      - <deploy-dir>/config/appsettings.Production.json:/app/appsettings.Production.json:ro,Z
+      - <deploy-dir>/config/certs:/app/certs:ro,Z
+      # 网页上传的 HTTPS 证书位于此持久卷的 control/https-certificate 私有目录。
+      - <deploy-dir>/data/api:/app/data:Z
+      # 会话 Cookie 数据保护密钥持久化，避免容器重建后全部登录失效。
+      - <deploy-dir>/data/api/keys:/home/app/.aspnet/DataProtection-Keys:Z
+    networks: [syslog-net]
+
+networks:
+  syslog-net:
+    driver: bridge

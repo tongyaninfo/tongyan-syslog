@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="../Syslog.Shared/Syslog.Shared.csproj" />
+    <ProjectReference Include="../Syslog.Engine/Syslog.Engine.csproj" />
+    <EmbeddedResource Include="Data/events.sql" LogicalName="Syslog.Ingest.Data.events.sql" />
+  </ItemGroup>
+</Project>

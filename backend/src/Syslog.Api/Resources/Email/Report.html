@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+</head>
+<body style="margin:0;padding:0;background:#edf3fa;color:#0f172a;font:14px/1.65 -apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#edf3fa;">
+    <tr><td align="center" style="padding:24px 10px;">
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid #dce6f2;border-radius:16px;">
+        <tr><td bgcolor="#102f60" style="padding:26px 24px;background:#102f60;color:#ffffff;border-radius:15px 15px 0 0;">
+          <p style="margin:0 0 8px;color:#c3ddff;font-size:13px;letter-spacing:0.12em;">通研技术&nbsp; / &nbsp;SYSLOG</p>
+          <h1 style="margin:0 0 8px;font-size:30px;line-height:1.2;">{{TITLE}}</h1>
+          <p style="margin:0;color:#e4efff;">{{PERIOD}}</p>
+          <p style="margin:4px 0 0;color:#c3ddff;word-break:break-word;">{{SCOPE}}</p>
+        </td></tr>
+        <tr><td style="padding:20px 24px 10px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#eff6ff;border:1px solid #dbeafe;border-radius:10px;">
+            <tr><td style="padding:12px 16px;color:#1e3a5f;">周期已入库<br><strong style="font-size:30px;color:#123a73;">{{TOTAL}}</strong><span style="margin-left:6px;">条</span></td></tr>
+          </table>
+          <table width="100%" cellspacing="0" cellpadding="0" style="margin-top:8px;text-align:center;table-layout:fixed;">
+            <tr>
+              <th scope="col" style="padding:8px 2px 2px;color:#991b1b;">紧急</th>
+              <th scope="col" style="padding:8px 2px 2px;color:#b91c1c;">警报</th>
+              <th scope="col" style="padding:8px 2px 2px;color:#c2410c;">严重</th>
+              <th scope="col" style="padding:8px 2px 2px;color:#92400e;">错误</th>
+            </tr>
+            <tr style="color:#0f172a;font-weight:bold;">
+              <td style="padding:2px;word-break:break-all;">{{EMERGENCY}}</td>
+              <td style="padding:2px;word-break:break-all;">{{ALERT}}</td>
+              <td style="padding:2px;word-break:break-all;">{{CRITICAL}}</td>
+              <td style="padding:2px;word-break:break-all;">{{ERROR}}</td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr><td style="padding:10px 24px;">
+          <h2 style="margin:0 0 4px;color:#123a73;font-size:19px;">最近 10 条高严重级别日志</h2>
+          <p style="margin:0 0 2px;color:#475569;font-size:12px;">按接收时间从新到旧展示，四级合计最多 10 条。</p>
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;">{{LOG_ROWS}}</table>
+        </td></tr>
+        <tr><td style="padding:10px 24px;">
+          <h2 style="margin:0 0 8px;color:#123a73;font-size:19px;">设备概览</h2>
+          <table width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;text-align:left;">
+            <tr style="background:#eff6ff;color:#123a73;">
+              <th scope="col" width="42%" style="padding:8px;">设备</th>
+              <th scope="col" width="26%" style="padding:8px;">已入库</th>
+              <th scope="col" width="32%" style="padding:8px;">高严重级别</th>
+            </tr>
+            {{DEVICE_ROWS}}
+          </table>
+        </td></tr>
+        <tr><td style="padding:10px 24px 20px;">
+          <h2 style="margin:0 0 4px;color:#123a73;font-size:19px;">系统运行快照</h2>
+          <p style="margin:0 0 8px;color:#475569;font-size:12px;">全系统当前状态，累计指标从本次服务启动开始。</p>
+          <table aria-label="系统运行快照" width="100%" cellspacing="0" cellpadding="0" style="background:#f8fafc;table-layout:fixed;">{{RUNTIME_ROWS}}</table>
+        </td></tr>
+        <tr><td style="padding:13px 24px;background:#f8fafc;border-top:1px solid #dce6f2;border-radius:0 0 15px 15px;color:#475569;font-size:12px;">
+          <p style="margin:0 0 3px;">生成时间 {{GENERATED_AT}}（上海时间）</p>
+          <p style="margin:0;">周期统计以生成时仍可检索的入库日志为准。邮件仅显示日志摘要。</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

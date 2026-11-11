@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="../Syslog.Ingest/Syslog.Ingest.csproj" />
+    <PackageReference Include="MailKit" />
+    <PackageReference Include="ModelContextProtocol.AspNetCore" />
+    <PackageReference Include="Microsoft.Data.Sqlite" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data/*.sql" />
+    <EmbeddedResource Include="Resources/Email/*.html" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,109 @@
+# 操作系统与编辑器个人状态
+.DS_Store
+Thumbs.db
+.idea/
+.vs/
+.vscode/*.local.json
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.history/
+*.swp
+*.swo
+*~
+
+# 依赖与包管理缓存
+**/node_modules/
+**/.npm/
+**/.pnpm-store/
+**/.yarn/
+
+# .NET 编译、发布与测试输出
+**/[Bb][Ii][Nn]/
+**/[Oo][Bb][Jj]/
+**/artifacts/
+**/publish/
+**/TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.binlog
+*.nupkg
+*.snupkg
+**/.nuget/packages/
+
+# 前端构建、缓存与测试产物；package-lock.json 保留在源码中
+**/dist/
+backend/src/Syslog.Api/wwwroot/
+**/dist-*/
+**/.umi/
+**/.umi-*/
+**/.turbopack/
+**/.cache/
+**/.vite/
+**/.vitest/
+**/coverage/
+**/playwright-report/
+**/blob-report/
+**/test-results/
+*.tsbuildinfo
+
+# 运行数据、日志、接收缓存与本地状态；数据文件与备份不进入仓库
+**/App_Data/
+**/data/
+**/logs/
+# 日志检索页面是源码，不属于运行日志目录。
+!frontend/src/pages/logs/
+!frontend/src/pages/logs/**
+**/run-data/
+**/spool/
+**/archive/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+**/.local/
+**/.dsh-tasks/
+
+# 本地环境与私有配置（示例模板除外）
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.*.sample
+!.env.template
+!.env.*.template
+**/appsettings.Local.json
+**/appsettings.*.Local.json
+**/appsettings.Private.json
+**/appsettings.*.Private.json
+
+# 证书、密钥与数据库等敏感材料
+*.pfx
+*.p12
+*.key
+*.pem
+*.crt
+*.cer
+*.jks
+*.keystore
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.db.lock
+*.sqlite.lock
+*.sqlite3.lock
+
+# 解析器与告警规则的本地私有覆盖（含真实主机名或来源地址时不入库）
+**/rules/local/
+**/rules/**/*.private.json
+**/rules/**/*.private.yaml
+
+# 服务器交付台账（含 root 登录口令明文，禁止提交）
+deploy/服务器交付台账.md
+deploy/交付服务器台账.md

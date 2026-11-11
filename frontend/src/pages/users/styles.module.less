@@ -1,0 +1,8 @@
+.stack { display: grid; gap: 16px; }
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 20px; }
+.search { width: 260px; max-width: 100%; }
+.filter { min-width: 160px; }
+@media(max-width: 480px) {
+  .search { width: 100%; }
+  .toolbar > :first-child { width: 100%; }
+}

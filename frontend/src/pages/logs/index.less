@@ -1,0 +1,164 @@
+.syslog-log-page {
+  .syslog-filter-card {
+    margin-bottom: 20px;
+
+    .ant-form-item {
+      margin-bottom: 16px;
+    }
+  }
+
+  .syslog-range-field {
+    width: 100%;
+  }
+
+  .syslog-time-shortcuts {
+    margin-top: 8px;
+  }
+
+  .syslog-filter-footer,
+  .syslog-results-heading,
+  .syslog-results-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .syslog-filter-footer {
+    padding-top: 4px;
+  }
+
+  .syslog-results-heading {
+    margin-bottom: 16px;
+  }
+
+  .syslog-results-pagination {
+    padding-top: 16px;
+  }
+
+  .syslog-results-range {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .syslog-log-message {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--ant-color-text);
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .syslog-time-cell {
+    white-space: nowrap;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .syslog-parser-version {
+    display: block;
+    color: var(--ant-color-text-secondary);
+    font-size: 11px;
+    margin-top: 4px;
+  }
+}
+
+.syslog-log-detail {
+  .syslog-detail-section {
+    margin-top: 24px;
+  }
+
+  .ant-descriptions-item-content {
+    overflow-wrap: anywhere;
+  }
+
+  .syslog-evidence-notice {
+    margin: 12px 0;
+  }
+
+  .syslog-evidence-text,
+  .syslog-evidence-hex {
+    margin: 0;
+    padding: 16px;
+    max-height: 380px;
+    overflow: auto;
+    border: 1px solid var(--ant-color-border-secondary);
+    border-radius: 8px;
+    background: var(--ant-color-fill-quaternary);
+    color: var(--ant-color-text);
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: 12px;
+    line-height: 1.75;
+    tab-size: 2;
+  }
+
+  .syslog-evidence-text {
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  .syslog-evidence-hex {
+    white-space: pre;
+  }
+}
+
+@media (max-width: 575px) {
+  // 弹层挂在 body 下；窄屏将日期与时间纵排，滚动发生在内部容器，避免被默认 overflow 裁切。
+  .syslog-range-popup.ant-picker-dropdown {
+    .ant-picker-panel-container {
+      max-height: calc(100vh - 32px);
+      max-height: calc(100dvh - 32px);
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .ant-picker-panel-layout,
+    .ant-picker-panels,
+    .ant-picker-datetime-panel {
+      flex-direction: column;
+    }
+
+    .ant-picker-datetime-panel .ant-picker-time-panel {
+      border-inline-start: 0;
+      border-block-start: 1px solid var(--ant-color-border-secondary);
+
+      .ant-picker-content {
+        height: 160px;
+      }
+    }
+
+    .ant-picker-footer {
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
+      background: var(--ant-color-bg-elevated);
+    }
+  }
+
+  .syslog-log-page {
+    .syslog-filter-footer > *,
+    .syslog-results-pagination > * {
+      max-width: 100%;
+    }
+
+    .syslog-time-shortcuts {
+      gap: 0 !important;
+    }
+
+    .syslog-results-range {
+      overflow-wrap: anywhere;
+    }
+
+    .syslog-results-heading {
+      align-items: flex-start;
+    }
+
+    .ant-card-body {
+      padding: 16px;
+    }
+  }
+}

@@ -1,0 +1,96 @@
+export default {
+  'menu.notifications': '알림 설정',
+  'notifications.description':
+    '메일과 로그 보고서 구독을 설정하고 발송 기록을 확인합니다.',
+  'notifications.smtp': '메일 서비스',
+  'notifications.reports': '보고서 구독',
+  'notifications.history': '발송 기록',
+  'notifications.host': 'SMTP 서버',
+  'notifications.port': 'SMTP 포트',
+  'notifications.useTls': 'SSL/TLS 사용',
+  'notifications.security': '암호화 방식',
+  'notifications.securityHint':
+    '일반적으로 SSL/TLS는 465 포트, STARTTLS는 587 포트를 사용합니다.',
+  'notifications.unencrypted':
+    '암호화가 꺼져 있으면 인증이 없는 내부 SMTP 릴레이만 사용할 수 있습니다.',
+  'notifications.username': 'SMTP 사용자 이름',
+  'notifications.password': 'SMTP 인증 코드',
+  'notifications.passwordHint':
+    '메일 서비스에서 발급한 코드를 사용하세요. 인증이 필요 없으면 비워 두세요.',
+  'notifications.keepPassword':
+    '인증 코드가 저장되어 있습니다. 유지하려면 비워 두고 연결 정보나 계정을 변경할 때는 다시 입력하세요.',
+  'notifications.senderAddress': '보낸 사람 이메일 주소',
+  'notifications.senderName': '보낸 사람 이름',
+  'notifications.subjectPrefix': '메일 제목 접두어',
+  'notifications.subjectPrefixHint':
+    '테스트 메일 및 예약 보고서에 적용됩니다. 비워 두면 접두어를 추가하지 않습니다.',
+  'notifications.subjectPreview': '제목 미리보기',
+  'notifications.smtpSaved': '메일 서비스 설정을 저장했습니다.',
+  'notifications.testMail': '테스트 메일',
+  'notifications.testHint': '테스트 메일은 저장된 메일 설정을 사용합니다.',
+  'notifications.recipient': '받는 사람 이메일',
+  'notifications.sendTest': '테스트 메일 발송',
+  'notifications.testQueued': '테스트 메일이 발송 대기열에 추가되었습니다.',
+  'notifications.invalidAddress': '올바른 이메일 주소를 입력하세요.',
+  'notifications.addReport': '구독 추가',
+  'notifications.editReport': '구독 편집',
+  'notifications.edit': '편집',
+  'notifications.reportName': '구독 이름',
+  'notifications.frequency': '발송 주기',
+  'notifications.sendTime': '발송 시간',
+  'notifications.scheduleHint':
+    '상하이 시간 기준으로 주간 보고서는 월요일에, 월간 보고서는 매월 1일에 발송합니다.',
+  'notifications.allSourcesHint': '비워 두면 등록된 모든 소스를 집계합니다.',
+  'notifications.recipients': '받는 사람',
+  'notifications.recipientsHint':
+    'Enter 또는 쉼표로 주소를 추가하세요. 최대 20개까지 가능합니다.',
+  'notifications.reportState': '구독 상태',
+  'notifications.enabled': '활성',
+  'notifications.disabled': '비활성',
+  'notifications.nextSend': '다음 발송 (UTC+8)',
+  'notifications.sourceCount': '소스 {count}개',
+  'notifications.noReports': '보고서 구독이 없습니다',
+  'notifications.mailKind': '메일 유형',
+  'notifications.subject': '메일 제목',
+  'notifications.deliveryStatus': '발송 상태',
+  'notifications.createdAt': '생성 시간',
+  'notifications.updatedAt': '갱신 시간',
+  'notifications.attempts': '발송 시도 횟수',
+  'notifications.period': '보고서 집계 기간',
+  'notifications.failureCode': '실패 코드',
+  'notifications.filter': '필터 적용',
+  'notifications.noDeliveries': '발송 기록이 없습니다',
+  'notifications.deliveryDetail': '발송 상세',
+  'notifications.htmlPreview': '메일 미리보기',
+  'notifications.textPreview': '일반 텍스트',
+  'notifications.noBody': '미리 볼 메일 본문이 없습니다.',
+  'notifications.kind.test': '테스트 메일',
+  'notifications.kind.daily': '일간 보고서',
+  'notifications.kind.weekly': '주간 보고서',
+  'notifications.kind.monthly': '월간 보고서',
+  'notifications.status.queued': '대기 중',
+  'notifications.status.sending': '발송 중',
+  'notifications.status.accepted': 'SMTP 접수 완료',
+  'notifications.status.failed': '발송 실패',
+  'notifications.status.unknown': '결과 알 수 없음',
+  'notifications.migrationRequired':
+    '알림 설정을 사용하기 전에 제어 데이터베이스를 업그레이드하세요.',
+  'notifications.smtpNotConfigured': '먼저 메일 서비스 설정을 저장하세요.',
+  'notifications.passwordRequired':
+    '이 연결에 사용할 SMTP 인증 코드를 입력하세요.',
+  'notifications.conflict': '설정이 변경되었습니다. 다시 불러온 후 저장하세요.',
+  'notifications.queueFull':
+    '메일 발송 대기열이 가득 찼습니다. 나중에 다시 시도하세요.',
+  'notifications.subscriptionLimit': '보고서 구독 수가 한도에 도달했습니다.',
+  'notifications.authenticationFailed':
+    'SMTP 인증에 실패했습니다. 계정과 인증 코드를 확인하세요.',
+  'notifications.providerRejected':
+    'SMTP 서버가 메일을 거부했습니다. 발신자, 수신자와 서비스 제한을 확인하세요.',
+  'notifications.tlsFailed':
+    '암호화 연결을 설정할 수 없습니다. 포트, 암호화 방식과 서버 인증서를 확인하세요.',
+  'notifications.smtpConnectionFailed':
+    'SMTP 서버에 연결할 수 없습니다. 주소, 포트와 네트워크를 확인하세요.',
+  'notifications.reportUnavailable':
+    '보고서를 생성할 수 없습니다. 로그 저장소 상태를 확인하세요.',
+  'notifications.subscriptionChanged': '발송 전에 구독 설정이 변경되었습니다.',
+};

@@ -1,0 +1,44 @@
+通研 Syslog（Tongyan Syslog）
+Copyright 2026 tongyaninfo（通研信息）
+
+This product includes software developed by the tongyaninfo project.
+
+本项目以 Apache License 2.0 发布，完整许可文本见 LICENSE。产品官网：https://syslog.tongyaninfo.com/ ，
+通研官网：https://www.tongyaninfo.com/ 。
+
+===============================================================================
+第三方软件组件
+Third-Party Software Components
+===============================================================================
+
+后端与前端依赖的第三方库（.NET 10 运行时与 ASP.NET Core、SignalR、ClickHouse、
+Microsoft.Data.Sqlite、React 19、Umi Max、Ant Design 6、Ant Design Pro 6.0.3
+模板、Biome、Vitest 等）分别适用其各自的许可证。依赖清单与具体版本见
+`backend/src/*/packages.lock.json`、`frontend/package-lock.json` 与各包元数据。
+
+- .NET 与 ASP.NET Core：MIT License
+- React、Umi、Ant Design、Ant Design Pro、Biome、Vitest：MIT License
+- ClickHouse：Apache License 2.0
+- SQLite：Public Domain
+
+管理台沿用 Ant Design Pro 模板的部分资产，模板许可文本随仓库保存在
+`frontend/LICENSE`（MIT）。本项目对模板的修改同样以 Apache License 2.0 发布；
+第三方组件本身仍适用其原始许可证。
+
+===============================================================================
+数据与隐私提示
+Data and Privacy Notes
+===============================================================================
+
+本产品用于接收、保存和检索 Syslog 报文，报文内容可能包含主机名、账号、网络
+地址等敏感信息。部署方应自行确定采集范围、访问权限与保留期限，并遵守适用的
+隐私与合规要求。仓库中的示例、截图与测试数据均为合成内容，不含真实日志。
+
+===============================================================================
+免责声明
+Disclaimer
+===============================================================================
+
+本项目按 Apache License 2.0 提供，不附带任何明示或默示担保。项目当前处于
+早期阶段，功能范围、接口与数据结构可能变化；截图与文档用于说明操作，不构成
+性能、容量或安全验收结论。

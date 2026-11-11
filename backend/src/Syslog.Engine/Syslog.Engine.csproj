@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><ItemGroup><ProjectReference Include="../Syslog.Shared/Syslog.Shared.csproj" /></ItemGroup></Project>

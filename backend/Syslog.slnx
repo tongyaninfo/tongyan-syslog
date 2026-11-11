@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Syslog.Api/Syslog.Api.csproj" />
+    <Project Path="src/Syslog.Engine/Syslog.Engine.csproj" />
+    <Project Path="src/Syslog.Ingest/Syslog.Ingest.csproj" />
+    <Project Path="src/Syslog.Shared/Syslog.Shared.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Syslog.Api.Tests/Syslog.Api.Tests.csproj" />
+    <Project Path="tests/Syslog.Engine.Tests/Syslog.Engine.Tests.csproj" />
+    <Project Path="tests/Syslog.Ingest.Tests/Syslog.Ingest.Tests.csproj" />
+  </Folder>
+</Solution>

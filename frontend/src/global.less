@@ -1,0 +1,57 @@
+html, body, #root { min-height: 100%; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+* { box-sizing: border-box; }
+.ant-layout { min-height: 100vh; }
+.ant-pro-layout .ant-pro-layout-content { min-width: 0; }
+.ant-pro-page-container-children-container { min-width: 0; }
+.ant-card { min-width: 0; }
+.ant-table-wrapper { min-width: 0; }
+.ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed { left: unset; }
+.syslog-header-actions { display: flex; align-items: center; gap: 4px; }
+.syslog-account-trigger { max-width: 180px; }
+.syslog-account-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.syslog-site-footer {
+  padding: 20px 16px 24px;
+  text-align: center;
+  a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+    &:hover, &:focus-visible { text-decoration: underline; }
+  }
+  img { display: block; object-fit: contain; }
+}
+.syslog-theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  .ant-radio-wrapper { margin: 0; align-items: center; }
+  .ant-radio-wrapper > span:last-child { display: grid; gap: 5px; }
+}
+.syslog-theme-sample {
+  display: block;
+  width: 62px;
+  height: 43px;
+  padding: 9px 4px 4px 17px;
+  border: 1px solid #c0cad7;
+  border-radius: 6px;
+  background: linear-gradient(to right, #dce5ef 22%, #f4f7fa 22%);
+  > span { display: block; height: 100%; background: #fff; border-radius: 3px; }
+  &[data-mode="auto"] { background: linear-gradient(to right, #e5ecf6 50%, #1c2b41 50%); > span { background: linear-gradient(to right, #fff 35%, #344762 35%); } }
+  &[data-mode="realDark"] { background: linear-gradient(to right, #172033 22%, #252f42 22%); > span { background: #3a4960; } }
+}
+.syslog-appearance-hint { margin-block-start: 16px; color: var(--ant-color-text-secondary); }
+.syslog-password-error { margin-block: 12px; }
+.preview-banner { margin-bottom: 16px; }
+.login-page > .preview-banner { margin-bottom: 0; }
+@media(max-width:767px) {
+  .syslog-header-actions { gap: 0; }
+  .syslog-account-trigger { max-width: 106px; }
+  .ant-pro-page-container-children-container { padding-inline: 12px !important; }
+  .ant-pro-layout .ant-pro-layout-content { padding-inline: 0; }
+  .ant-table-container { max-width: 100%; }
+}

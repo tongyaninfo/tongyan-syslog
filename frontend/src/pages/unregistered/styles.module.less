@@ -1,0 +1,45 @@
+.stack {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+
+.stack > * {
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.search {
+  width: 320px;
+  max-width: 100%;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.networks {
+  overflow-wrap: anywhere;
+}
+
+.preview {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+  max-height: 80px;
+  overflow: auto;
+}
+
+@media (max-width: 575px) {
+  .search {
+    width: 100%;
+  }
+}

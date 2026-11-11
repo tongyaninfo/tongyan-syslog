@@ -1,0 +1,297 @@
+.content {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  min-width: 0;
+}
+
+.metricCard {
+  min-width: 0;
+}
+
+.metricLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.metricValue {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.rateCard {
+  min-width: 0;
+}
+
+.rateControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px 12px;
+}
+
+.rateSourceFilter {
+  width: clamp(120px, 17vw, 220px);
+}
+
+.rateLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin: 0 0 20px;
+}
+
+.rateLegendItem {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  dt,
+  dd {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+  }
+}
+
+.rateSwatch {
+  width: 20px;
+  border-top-width: 2px;
+}
+
+.rateValue {
+  font-variant-numeric: tabular-nums;
+}
+
+.rateAxes {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 8px 10px;
+  font-size: 12px;
+  line-height: 1.25;
+  font-variant-numeric: tabular-nums;
+}
+
+.rateTicksY,
+.rateTicksX,
+.ratePlot {
+  position: relative;
+  min-width: 0;
+}
+
+.rateTicksY {
+  display: grid;
+  min-width: 24px;
+
+  span {
+    position: relative;
+    grid-area: 1 / 1;
+    align-self: start;
+    text-align: right;
+    transform: translateY(-50%);
+  }
+}
+
+.ratePlot {
+  height: clamp(132px, 17vw, 188px);
+  cursor: crosshair;
+}
+
+.rateSvg {
+  display: block;
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+}
+
+.rateWaiting {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  text-align: center;
+}
+
+.rateMarker,
+.rateTooltip {
+  position: absolute;
+  pointer-events: none;
+}
+
+.rateMarker {
+  transform: translate(-50%, -50%);
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.rateTooltip {
+  z-index: 1;
+  width: max-content;
+  max-width: calc(50% - 12px);
+  padding: 8px 10px;
+  transform: translateX(10px);
+  border: 1px solid;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+
+  &[data-side='left'] {
+    transform: translateX(calc(-100% - 10px));
+  }
+}
+
+.rateTooltipTime,
+.rateTooltipValues > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 10px;
+}
+
+.rateTooltipTime {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.rateTooltipValues,
+.rateTooltipValues dd {
+  margin: 0;
+}
+
+.rateTooltipValues > div + div {
+  margin-top: 4px;
+}
+
+.rateTooltipValues dd {
+  font-weight: 600;
+}
+
+.rateTooltipDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-inline-end: 5px;
+  border-radius: 50%;
+  vertical-align: 1px;
+}
+
+.rateTicksX {
+  grid-column: 2;
+  height: 15px;
+
+  span {
+    position: absolute;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  span:first-child {
+    transform: none;
+  }
+
+  span:last-child {
+    transform: translateX(-100%);
+  }
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  min-width: 0;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 16px;
+  margin: 22px 0 0;
+
+  div {
+    min-width: 0;
+  }
+
+  dt {
+    margin-bottom: 7px;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 18px;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+  }
+}
+
+.lastWrite {
+  grid-column: 1 / -1;
+}
+
+.note {
+  margin: 0 !important;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 1199px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .detailGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .rateControls {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+  }
+
+  .rateSourceFilter {
+    width: clamp(105px, 35vw, 145px);
+  }
+
+  .content, .metrics, .detailGrid {
+    gap: 12px;
+  }
+
+  .metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .metricValue {
+    font-size: 27px;
+  }
+
+  .rateTicksX span:nth-child(even) {
+    display: none;
+  }
+}

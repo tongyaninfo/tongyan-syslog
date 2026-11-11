@@ -1,0 +1,12 @@
+.syslog-live-page {
+  .syslog-live-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .syslog-live-metric-value { font-size: 28px; line-height: 1.6; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .syslog-live-filter { margin-bottom: 16px; }
+  .ant-alert { margin-bottom: 12px; }
+  .syslog-live-message { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .syslog-live-footer { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 16px 0 8px; }
+  .ant-card-head-wrapper { flex-wrap: wrap; gap: 12px; padding: 8px 0; }
+  .ant-card-extra { margin-inline-start: 0; }
+  @media (max-width: 900px) { .syslog-live-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 480px) { .syslog-live-metrics { grid-template-columns: 1fr; } }
+}

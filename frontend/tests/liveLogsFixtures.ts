@@ -1,0 +1,67 @@
+import type {
+  LiveLogCacheStats,
+  LiveLogRecord,
+  LiveLogUpdate,
+} from '../src/services/syslog/liveLogs';
+
+export const cache: LiveLogCacheStats = {
+  epoch: 'epoch-a',
+  latestSequence: '10',
+  entries: 10,
+  bytes: 4096,
+  deviceCount: 1,
+  evicted: 0,
+  rejected: 0,
+  perDeviceLimit: 5000,
+  maxBytes: 536870912,
+  available: true,
+};
+export const liveRow = (
+  sequence: string,
+  disposition: 'normal' | 'ignored' = 'normal',
+): LiveLogRecord => ({
+  id: `epoch-a:${sequence}`,
+  sequence,
+  disposition,
+  messageTruncated: false,
+  log: {
+    eventId: disposition === 'ignored' ? '0' : sequence,
+    batchId: 'example',
+    sourceId: '42',
+    peerAddress: '192.0.2.10',
+    transport: 'tcp',
+    receivedAt: '2026-11-11T00:00:00.000Z',
+    eventTime: null,
+    expiresAt: '2027-11-11T00:00:00Z',
+    originalTimestamp: '-',
+    timeConfidence: 'unknown',
+    hostname: 'example-router',
+    appName: 'sample',
+    procId: '',
+    msgId: '',
+    structuredData: '',
+    facility: 1,
+    severity: 6,
+    message: `synthetic ${sequence}`,
+    rawBytes: '',
+    parseStatus: 'parsed',
+    failureCode: '',
+    parserVersion: 'rfc-v1',
+  },
+});
+export const liveUpdate = (
+  overrides: Partial<LiveLogUpdate> = {},
+): LiveLogUpdate => ({
+  subscriptionId: 'live-0',
+  kind: 'snapshot',
+  epoch: 'epoch-a',
+  cursor: '10',
+  items: [liveRow('10')],
+  hasMore: true,
+  nextBeforeSequence: '10',
+  budgetLimited: false,
+  cache,
+  observedAt: '2026-11-11T00:00:00Z',
+  ingest: { queued: 0, dropped: 0, spoolFull: false, state: 'running' },
+  ...overrides,
+});
